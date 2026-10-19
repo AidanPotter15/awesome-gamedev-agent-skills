@@ -175,11 +175,15 @@ options = ClaudeAgentOptions(
 ## Claude.ai
 
 1. Settings → Capabilities → enable **Code execution**.
-2. Zip the skill folder so that the folder (named exactly like `name`) is the zip root and
-   `SKILL.md` sits inside it.
-3. Customize → Skills → **Upload**.
+2. Build the zips: `python3 scripts/package-claude-ai.py` writes them to `dist/claude-ai/`.
+3. Customize → Skills → **Upload**, then pick one of:
+   - `gamedev.zip`: the router and all 74 skills as one skill. A single upload, and the router
+     opens the bundled skill it needs.
+   - `individual/<name>.zip`: one skill per zip (upload `router.zip` too), for a subset.
 
-Upload the complete skill folder so bundled references, scripts, and assets remain available.
+To zip a skill by hand instead, make its folder (named exactly like `name`) the zip root with
+`SKILL.md` inside it, and include the whole folder so its references, scripts, and assets remain
+available.
 
 ## Cursor / Windsurf / Cline (native skills)
 
